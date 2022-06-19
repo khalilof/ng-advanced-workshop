@@ -1,0 +1,6 @@
+<div class="settings">
+  <app-switch (switched)="switchHandler($event, 'background')" [checked]="background"
+              label="Background Image"></app-switch>
+  <app-switch (switched)="switchHandler($event, 'compact-mode')" [checked]="compactMode"
+              label="Compact Mode"></app-switch>
+</div>
