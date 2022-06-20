@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeState } from '../../../+state/reducers/home.reducers';
-import { Store } from '@ngrx/store';
-import { selectBackground, selectCompactMode } from 'src/app/+state/selectors/home.selectors';
-import { setBackground, setCompactMode } from '../../../+state/actions/home.actions';
+import { HomeFacade } from '../../../+state/home.facade';
 
 @Component({
   selector: 'app-settings-ui',
@@ -11,20 +8,20 @@ import { setBackground, setCompactMode } from '../../../+state/actions/home.acti
 })
 export class SettingsUiComponent {
 
-  backgroundSelector$ = this.store.select(selectBackground);
-  compactMode$ = this.store.select(selectCompactMode);
+  backgroundSelector$ = this.homeFacade.backgroundSelector$;
+  compactMode$ = this.homeFacade.compactMode$;
 
-  constructor(private store: Store<HomeState>) {
+  constructor(private homeFacade: HomeFacade) {
   }
 
 
   switchHandler($event: boolean, attribute: string) {
     switch (attribute) {
       case 'background':
-        this.store.dispatch(setBackground({background: $event}));
+        this.homeFacade.updateBackground($event);
         break;
       case 'compact-mode':
-        this.store.dispatch(setCompactMode({compactMode: $event}));
+        this.homeFacade.updateCompactMode($event);
         break;
     }
   }

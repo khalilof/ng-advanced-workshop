@@ -1,10 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ITable, TableStatus } from '../../../model/table.interface';
 import { DashboardService } from '../services/dashboard.service';
-import { selectBackground, selectCompactMode, selectFilteredTables } from '../../../+state/selectors/home.selectors';
-import { Store } from '@ngrx/store';
-import { HomeState } from '../../../+state/reducers/home.reducers';
-import { setFilterValue, updateTable } from '../../../+state/actions/home.actions';
+import { HomeFacade } from '../../../+state/home.facade';
 
 @Component({
   selector: 'app-dashboard-ui',
@@ -19,11 +16,11 @@ export class DashboardUiComponent implements OnInit {
   filterValue = '';
   TableStatus = TableStatus;
 
-  backgroundSelector$ = this.store.select(selectBackground);
-  compactMode$ = this.store.select(selectCompactMode);
-  selectTables$ = this.store.select(selectFilteredTables);
+  backgroundSelector$ = this.homeFacade.backgroundSelector$;
+  compactMode$ = this.homeFacade.compactMode$;
+  selectTables$ = this.homeFacade.selectTables$;
 
-  constructor(private dashboardService: DashboardService, private store: Store<HomeState>) {
+  constructor(private dashboardService: DashboardService, private homeFacade: HomeFacade) {
 
   }
 
@@ -40,10 +37,10 @@ export class DashboardUiComponent implements OnInit {
 
   applyFilter(filterValue: string): void {
     this.filterValue = filterValue;
-    this.store.dispatch(setFilterValue({filterValue}));
+    this.homeFacade.setFilterValue(filterValue);
   }
 
   updateTableHandler($event: ITable) {
-    this.store.dispatch(updateTable({table: $event}));
+    this.homeFacade.updateTable($event);
   }
 }

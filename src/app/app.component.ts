@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeState } from './+state/reducers/home.reducers';
-import { Store } from '@ngrx/store';
-import { loadTables } from './+state/actions/home.actions';
+import { HomeFacade } from './+state/home.facade';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +9,10 @@ import { loadTables } from './+state/actions/home.actions';
 export class AppComponent {
   title = 'ng-advanced';
 
-  constructor(private store: Store<HomeState>) {
+  constructor(private homeFacade: HomeFacade) {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadTables());
+    this.homeFacade.loadTables();
   }
 }
