@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SwitchComponent {
 
-  @Input() checked = false;
+  @Input() checked: boolean | null = false;
   @Input() label = 'Label here';
   @Output() switched = new EventEmitter<boolean>();
 

@@ -27,8 +27,9 @@ export class DashboardItemComponent implements OnInit {
 
   updateStatus(status: TableStatus) {
     if (this.meals.length > 0) {
-      this.table.currentOrder = this.meals;
+      this.updateTable.emit({...this.table, status: status, currentOrder: this.meals});
+    } else {
+      this.updateTable.emit({...this.table, status: status});
     }
-    this.updateTable.emit({...this.table, status: status});
   }
 }
