@@ -23,22 +23,15 @@ export class DashboardUiComponent implements OnInit {
 
   ngOnInit(): void {
     this.dashboardService.getTables().subscribe(tables => {
-      console.log('tables', tables);
       this.tables = tables;
     });
 
-    this.dashboardService.loadTables();
-    // this.tables = this.dashboardService.getTables();
+    this.dashboardService.fetchTables();
   }
 
   applyFilter(filterValue: string): void {
     this.filterValue = filterValue;
     this.dashboardService.applyFilter(filterValue);
-    if (filterValue.length > 0) {
-      //  this.tables = this.dashboardService.getTables().filter(table => table.status.includes(filterValue));
-    } else {
-      // this.tables = this.dashboardService.getTables();
-    }
   }
 
   updateTableHandler($event: ITable) {
