@@ -2,8 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { homeKey, HomeState } from '../reducers/home.reducers';
 
 
-export const selectHomeState = createFeatureSelector<HomeState>(
-  homeKey);
+export const selectHomeState = createFeatureSelector<HomeState>(homeKey);
 
 
 export const selectBackground = createSelector(selectHomeState, (state: HomeState) => state.background);

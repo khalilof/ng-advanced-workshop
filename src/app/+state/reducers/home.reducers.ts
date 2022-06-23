@@ -10,10 +10,6 @@ import { ITable } from '../../model/table.interface';
 
 export const homeKey = 'home';
 
-export interface RootState {
-  homeState: HomeState;
-}
-
 export interface HomeState {
   background: boolean;
   compactMode: boolean;
