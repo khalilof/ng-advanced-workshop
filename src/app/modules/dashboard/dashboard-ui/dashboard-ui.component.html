@@ -1,5 +1,5 @@
 <div [class.compact]="compactMode" class="items">
-  <app-dashboard-item (updateTable)="updateTableHandler($event)" *ngFor="let table of selectTables$ | async"
+  <app-dashboard-item (updateTable)="updateTableHandler($event)" *ngFor="let table of tables"
                       [table]="table"></app-dashboard-item>
 </div>
 

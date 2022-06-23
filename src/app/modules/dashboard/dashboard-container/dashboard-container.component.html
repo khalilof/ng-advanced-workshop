@@ -1,0 +1,7 @@
+<app-dashboard-ui
+  (filterValueChange)="filterChangeHandler($event)"
+  (updateTable)="updateTableHandler($event)"
+  [compactMode]="(compactMode$ | async) ?? false"
+  [hasBackground]="(backgroundSelector$ | async) ?? true"
+  [tables]="selectTables$ | async"
+></app-dashboard-ui>
