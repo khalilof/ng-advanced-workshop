@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { HomeState } from './reducers/home.reducers';
-import { selectBackground, selectCompactMode, selectFilteredTables } from './selectors/home.selectors';
+import {
+  selectBackground,
+  selectCompactMode,
+  selectFilteredTables,
+  selectStatusCount
+} from './selectors/home.selectors';
 import { loadTables, setBackground, setCompactMode, setFilterValue, updateTable } from './actions/home.actions';
 import { ITable } from '../model/table.interface';
 
@@ -14,6 +19,7 @@ export class HomeFacade {
   backgroundSelector$ = this.store.select(selectBackground);
   compactMode$ = this.store.select(selectCompactMode);
   selectTables$ = this.store.select(selectFilteredTables);
+  selectStatusCount$ = this.store.select(selectStatusCount);
 
   constructor(private store: Store<HomeState>) {
   }

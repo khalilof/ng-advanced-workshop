@@ -13,6 +13,7 @@ export class DashboardContainerComponent {
   backgroundSelector$ = this.homeFacade.backgroundSelector$;
   compactMode$ = this.homeFacade.compactMode$;
   selectTables$ = this.homeFacade.selectTables$;
+  selectStatusCount$ = this.homeFacade.selectStatusCount$;
 
   constructor(private dashboardService: DashboardService, private homeFacade: HomeFacade) {
   }

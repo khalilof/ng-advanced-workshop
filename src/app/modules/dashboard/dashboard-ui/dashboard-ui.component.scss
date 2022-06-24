@@ -46,11 +46,21 @@
       border-radius: 6px;
       background-color: #9f55e5a6;
       color: wheat;
-
+      position: relative;
       &.active, &:hover {
         border: 3px solid #ffeb3b;
       }
 
+      .badge {
+        position: absolute;
+        top: -20px;
+        left: -15px;
+        background-color: #6d6d6d;
+        color: wheat;
+        border-radius: 50%;
+        width: 30px;
+        font-size: 25px;
+      }
       span {
         font-size: 40px;
       }

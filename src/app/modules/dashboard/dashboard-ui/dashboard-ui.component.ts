@@ -10,6 +10,7 @@ export class DashboardUiComponent implements OnChanges {
   @Input() hasBackground: boolean = false;
   @Input() compactMode: boolean = false;
   @Input() tables: ITable[] | null = [];
+  @Input() statusCountMap!: Map<TableStatus, number> | null;
 
   @Output() updateTable = new EventEmitter<ITable>();
   @Output() filterValueChange = new EventEmitter<string>();
