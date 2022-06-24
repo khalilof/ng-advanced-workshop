@@ -5,7 +5,6 @@ import { SettingsRoutingModule } from './settings-routing.module';
 import { SwitchComponent } from './switch/switch.component';
 
 
-
 @NgModule({
   declarations: [
     SettingsUiComponent,

@@ -2,6 +2,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { ITable, TableStatus } from '../../../model/table.interface';
 import { DashboardService } from '../services/dashboard.service';
 import { SettingsService } from '../../settings/services/settings.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-ui',
@@ -17,7 +18,7 @@ export class DashboardUiComponent implements OnInit {
   TableStatus = TableStatus;
   compactMode = this.settingsService.get('compact-mode');
 
-  constructor(private dashboardService: DashboardService, private settingsService: SettingsService) {
+  constructor(private dashboardService: DashboardService, private settingsService: SettingsService, private router: Router) {
 
   }
 
